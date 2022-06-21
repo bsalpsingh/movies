@@ -1,14 +1,20 @@
-import React from 'react';
+import React from "react";
+import "@fontsource/roboto";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "./pages/Home/home.page";
+import { MovieDetailsPage } from "./pages/MoviePage/movieDetails.page";
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { HomePage } from './pages/Home';
-import { PageTwo } from './pages/Page2';
+// components
+import { AppBarWrap } from "./components/compound/appbarWrap/appbarWrap.HOC";
+
+const WrapAppBar = (page) => () => AppBarWrap(page);
 
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/page2" exact component={PageTwo} />
+      <Route path="/" exact render={WrapAppBar(HomePage)()} />
+      <Route path="/watchlist" exact render={WrapAppBar(HomePage)()} />
+      <Route path="/movie/:id" exact render={WrapAppBar(MovieDetailsPage)()} />
     </Switch>
   </BrowserRouter>
 );

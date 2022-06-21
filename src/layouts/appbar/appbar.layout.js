@@ -1,0 +1,1 @@
+// HOC ...takes in a component and wraps it around the app bar

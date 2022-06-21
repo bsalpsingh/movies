@@ -1,13 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
 
-import App from './App';
-import './index.css';
+import { ThemeProvider } from "styled-components";
+import { theme } from "./constants/theme/index";
+import App from "./App";
+
+//  redux stuff
+import { Provider } from "react-redux";
+
+import { store, persistor } from "./store/store";
+import { PersistGate } from "redux-persist/integration/react";
+import "./index.css";
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </PersistGate>
+  </Provider>,
+
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
