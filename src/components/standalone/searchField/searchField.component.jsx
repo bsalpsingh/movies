@@ -5,6 +5,10 @@ import { useState, useEffect } from "react";
 import { alpha, makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
+
+//library fxns
+import { useTranslation } from "react-i18next";
+
 const useStyles = makeStyles((theme) => ({
   search: {
     position: "relative",
@@ -51,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const SearchFiled = ({ passSearchString }) => {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   // component states
@@ -78,7 +83,7 @@ export const SearchFiled = ({ passSearchString }) => {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search…"
+        placeholder={t("Search")}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

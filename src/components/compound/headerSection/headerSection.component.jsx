@@ -7,6 +7,7 @@ import { SearchFiled } from "../../standalone/searchField/searchField.component"
 import { useStyles } from "./headerSection.styles";
 
 // library fxns
+import { useTranslation } from "react-i18next";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -21,6 +22,7 @@ export const Header = ({
   dispatch,
   movieData,
 }) => {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [movieSearchString, setMovieSearchString] = useState("");
   const passSearchString = (searchString) => {
@@ -48,7 +50,7 @@ export const Header = ({
         align="center"
         variant="h4"
       >
-        {title}
+        {t(`${title}`)}
       </Typography>
 
       {!!match.params.id ? (

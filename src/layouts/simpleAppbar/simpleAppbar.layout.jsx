@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 //library fxns
 import { withRouter } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const SimpleAppBar = ({ match, history }) => {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   const handleClick = (url) => (e) => {
-   
     history.push(url);
   };
 
@@ -49,7 +49,7 @@ export const SimpleAppBar = ({ match, history }) => {
               variant="h6"
               noWrap
             >
-              Movies
+              {t("movies")}
             </Typography>
 
             <Typography
@@ -58,7 +58,7 @@ export const SimpleAppBar = ({ match, history }) => {
               variant="h6"
               noWrap
             >
-              WatchList
+              {t("watch list")}
             </Typography>
           </div>
         </Toolbar>

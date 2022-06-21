@@ -1,0 +1,13 @@
+{
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "newAccount": "Create New Account",
+  "selectLang": "Select Language",
+  "selectedLang": "English",
+  "movie": "Movie list",
+  "watch list": "watch list",
+  "Search": "search",
+  "Movie Details": "Movie Details",
+  "Cast": "Cast"
+}

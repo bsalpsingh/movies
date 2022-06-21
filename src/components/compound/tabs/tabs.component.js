@@ -3,7 +3,11 @@ import React, { useEffect } from "react";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
+//library fxns
+import { useTranslation } from "react-i18next";
+
 export const DetailsTab = ({ tabList, activeTabIndex, passTabIndex }) => {
+  const { t } = useTranslation();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -24,7 +28,7 @@ export const DetailsTab = ({ tabList, activeTabIndex, passTabIndex }) => {
       aria-label="disabled tabs example"
     >
       {tabList.map((tab, tabIndex) => (
-        <Tab key={tabIndex} label={tab} />
+        <Tab key={tabIndex} label={t(`${tab}`)} />
       ))}
     </Tabs>
   );

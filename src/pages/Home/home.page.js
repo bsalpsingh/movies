@@ -28,7 +28,7 @@ export const HomePage = ({
   return (
     <div style={styles.homePageContainer}>
       <HeaderSection
-        title="Movies"
+        title="movies"
         passMovieSearchString={passSearchString}
       ></HeaderSection>
       <MovieList movieSearchString={movieSearchString} />
